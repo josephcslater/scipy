@@ -1509,11 +1509,11 @@ def _nonlin_wrapper(name, jac):
     # Construct the wrapper function so that its keyword arguments
     # are visible in pydoc.help etc.
     wrapper = """
-def %(name)s(F, xin, iter=None %(kw)s, verbose=False, maxiter=None,
+def %(name)s(F, x0, iter=None %(kw)s, verbose=False, maxiter=None,
              f_tol=None, f_rtol=None, x_tol=None, x_rtol=None,
              tol_norm=None, line_search='armijo', callback=None, **kw):
     jac = %(jac)s(%(kwkw)s **kw)
-    return nonlin_solve(F, xin, jac, iter, verbose, maxiter,
+    return nonlin_solve(F, x0, jac, iter, verbose, maxiter,
                         f_tol, f_rtol, x_tol, x_rtol, tol_norm, line_search,
                         callback)
 """
